@@ -11,6 +11,7 @@ jobs:
           java-version: "17"
       - uses: subosito/flutter-action@v2
         with:
+          flutter-version: "3.35.x"
           channel: stable
       - run: |
           unzip chess_gui.zip
@@ -19,6 +20,7 @@ jobs:
           cp chess_gui/pubspec.yaml app/pubspec.yaml
           cd app
           flutter pub get
+          find ~/.pub-cache -path '*stockfish-*/android/build.gradle' -exec sed -i 's/jcenter()/mavenCentral()/g' {} +
           flutter build apk --release --split-per-abi
       - uses: actions/upload-artifact@v4
         with:
