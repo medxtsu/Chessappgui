@@ -16,8 +16,8 @@ jobs:
       - run: |
           unzip catchess.zip
           flutter create --platforms=android app
-          cp -r chess_gui/lib app/
-          cp chess_gui/pubspec.yaml app/pubspec.yaml
+          cp -r catchess/lib app/
+          cp catchess/pubspec.yaml app/pubspec.yaml
           cd app
           flutter pub get
           find ~/.pub-cache -path '*stockfish-*/android/build.gradle' -exec sed -i 's/jcenter()/mavenCentral()/g' {} +
