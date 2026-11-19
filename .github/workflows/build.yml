@@ -14,7 +14,7 @@ jobs:
           flutter-version: "3.35.x"
           channel: stable
       - run: |
-          unzip chess_gui.zip
+          unzip catchess.zip
           flutter create --platforms=android app
           cp -r chess_gui/lib app/
           cp chess_gui/pubspec.yaml app/pubspec.yaml
